@@ -8,6 +8,6 @@ import java.lang.annotation.RetentionPolicy
 
 @Retention(RetentionPolicy.SOURCE)
 @Target([ElementType.METHOD])
-@GroovyASTTransformationClass(["gep.LoggingASTTransformation"])
+@GroovyASTTransformationClass(["com.kurtharriger.groovy.transform.LoggingASTTransformation"])
 public @interface WithLogging {
 }

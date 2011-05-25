@@ -18,7 +18,9 @@ import org.codehaus.groovy.ast.expr.ArgumentListExpression
 public class LoggingASTTransformation implements ASTTransformation {
 
   public void visit(ASTNode[] nodes, SourceUnit sourceUnit) {
-      List methods = sourceUnit.getAST()?.getMethods()
+      //List methods = sourceUnit.getAST()?.getMethods()
+      List methods = sourceUnit.getAST().classes*.methods.flatten()
+
       // find all methods annotated with @WithLogging
       methods.findAll { MethodNode method ->
           method.getAnnotations(new ClassNode(WithLogging))
